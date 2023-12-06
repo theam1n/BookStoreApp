@@ -23,6 +23,8 @@ public class Author {
 
     private String name;
 
+    private String surname;
+
     private int age;
 
     @OneToMany(mappedBy = "author")
@@ -30,6 +32,10 @@ public class Author {
 
     @ManyToMany(mappedBy = "subscribedAuthors")
     private Set<Student> subscribes = new HashSet<>();
+
+    @OneToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "user_id", unique = true)
+    private User user;
 
 
 }

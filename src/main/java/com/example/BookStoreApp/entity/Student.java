@@ -22,6 +22,8 @@ public class Student {
 
     private String name;
 
+    private String surname;
+
     private int age;
 
 
@@ -42,5 +44,10 @@ public class Student {
             inverseJoinColumns = @JoinColumn(name = "author_id")
     )
     private Set<Author> subscribedAuthors = new HashSet<>();
+
+    @OneToOne(cascade = {CascadeType.MERGE, CascadeType.REMOVE})
+    @JoinColumn(name = "user_id", unique = true)
+    private User user;
+
 
 }

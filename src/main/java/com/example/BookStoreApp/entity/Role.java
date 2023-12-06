@@ -20,15 +20,6 @@ public class Role {
 
     private String role;
 
-//    @ManyToMany(cascade = {CascadeType.MERGE,CascadeType.PERSIST},
-//            fetch = FetchType.LAZY)
-//    @JoinTable(
-//            name = "role_user",
-//            joinColumns = @JoinColumn(name = "role_id"),
-//            inverseJoinColumns = @JoinColumn(name = "user_id")
-//    )
-//
-
     @ManyToMany(mappedBy = "roles")
     private List<User> users;
 

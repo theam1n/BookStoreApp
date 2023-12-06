@@ -28,6 +28,8 @@ public class User implements UserDetails {
 
     private String surname;
 
+    private int age;
+
     private String email;
 
     @Column(unique = true)
@@ -44,6 +46,8 @@ public class User implements UserDetails {
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
     private Set<Role> roles = new HashSet<>();
+
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

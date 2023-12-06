@@ -17,6 +17,8 @@ public class UserRequest {
 
     private String surname;
 
+    private int age;
+
     private String email;
 
     private String username;

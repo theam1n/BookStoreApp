@@ -29,16 +29,20 @@ public class AuthorServiceImpl implements AuthorService {
 
 
     @Override
-    public BookResponse createBook(Long id, BookRequest bookRequest) {
+    public Author createAuthor(Author author) {
+        return authorRepository.save(author);
 
-        Optional<Author> optionalAuthor = authorRepository.findById(id);
-        Author author = optionalAuthor.get();
+    }
+    @Override
+    public BookResponse createBook(String username,BookRequest bookRequest) {
+
+        Author author = authorRepository.findByUserUsername(username);
 
         Book book = bookMapper.requestToEntity(bookRequest);
         book.setAuthor(author);
         bookRepository.save(book);
 
-       return bookMapper.entityToResponse(book);
+        return bookMapper.entityToResponse(book);
 
     }
 

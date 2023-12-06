@@ -17,7 +17,10 @@ public class AuthController {
     private final JwtService jwtService;
 
 
-
+    @PostMapping("/hello")
+    public void hello() {
+        System.out.println("hello");
+    }
     @PostMapping("/register")
     public ResponseEntity<UserResponse> saveUser(@RequestBody UserRequest request) {
         UserResponse response = userService.saveUser(request);

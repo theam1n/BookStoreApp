@@ -27,6 +27,11 @@ public class StudentServiceImpl implements StudentService {
     private final BookRepository bookRepository;
 
     @Override
+    public Student createStudent(Student student) {
+        return studentRepository.save(student);
+    }
+
+    @Override
     public List<Book> getAllReadingBooks(Long id) {
         return null;
     }
